@@ -3,6 +3,7 @@ import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import TextInput from '../common/text_input.jsx';
 import BlockActions from '../../actions/block_actions.js';
+import EditableRedux from '../high_order/editable_redux';
 
 const Gradeable = createReactClass({
   displayName: 'Gradeable',
@@ -45,4 +46,4 @@ const Gradeable = createReactClass({
 }
 );
 
-export default Gradeable;
+export default EditableRedux(Gradeable);
