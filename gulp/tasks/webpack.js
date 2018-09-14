@@ -3,12 +3,12 @@ import loadPlugins from 'gulp-load-plugins';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import config from '../config.js';
-import wpConf from './webpack.config.js';
+import { webpackConfig } from './webpack.config.js';
 const plugins = loadPlugins();
 
 gulp.task('webpack', ['jquery-uls'], (cb) => {
   const doHot = config.development && !config.watch_js;
-  const wp = webpack(wpConf);
+  const wp = webpack(webpackConfig(config));
   if (doHot) {
     // If hot mode, start webpack with dev server
     new WebpackDevServer(wp, {
