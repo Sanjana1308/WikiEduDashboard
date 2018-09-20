@@ -7,6 +7,7 @@ import ArticleList from './article_list.jsx';
 import AssignmentList from '../assignments/assignment_list.jsx';
 import AvailableArticles from '../articles/available_articles.jsx';
 import CourseOresPlot from './course_ores_plot.jsx';
+import ArticleCompletenessBeforeAfterGraph from './article_completeness_before_after_graph';
 import CategoryHandler from '../categories/category_handler.jsx';
 import { fetchArticles, sortArticles, filterArticles } from '../../actions/articles_actions.js';
 import { fetchAssignments } from '../../actions/assignment_actions';
@@ -104,6 +105,7 @@ const ArticlesHandler = createReactClass({
         <div id="articles">
           <div className="section-header">
             {header}
+            <ArticleCompletenessBeforeAfterGraph graphid={'ohaithere'} />
             <CourseOresPlot course={this.props.course} />
             {filterWikis}
             <div className="sort-select">

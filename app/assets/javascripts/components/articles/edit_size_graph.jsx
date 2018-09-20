@@ -1,4 +1,4 @@
-/* global vg */
+/* global vegaEmbed */
 import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
@@ -11,6 +11,10 @@ const EditSizeGraph = createReactClass({
     graphWidth: PropTypes.number,
     graphHeight: PropTypes.number,
     articleData: PropTypes.array
+  },
+
+  componentDidUpdate() {
+    this.renderGraph();
   },
 
   renderGraph() {
@@ -167,7 +171,7 @@ const EditSizeGraph = createReactClass({
           },
           properties: {
             enter: {
-              x: { signal: 'width', mult: 0.68 },
+              // x: { signal: 'width', mult: 0.68 },
               y: { value: -10 },
               text: { template: 'Additions' },
               fill: { value: '#0000ff' },
@@ -184,7 +188,7 @@ const EditSizeGraph = createReactClass({
           },
           properties: {
             enter: {
-              x: { signal: 'width', mult: 0.73 },
+              // x: { signal: 'width', mult: 0.73 },
               y: { value: -10 },
               text: { template: 'and' },
               fill: { value: '#A9A9A9' },
@@ -201,7 +205,7 @@ const EditSizeGraph = createReactClass({
           },
           properties: {
             enter: {
-              x: { signal: 'width', mult: 0.86 },
+              // x: { signal: 'width', mult: 0.86 },
               y: { value: -10 },
               text: { template: 'Deletions' },
               fill: { value: '#ff0000' },
@@ -218,7 +222,7 @@ const EditSizeGraph = createReactClass({
           },
           properties: {
             enter: {
-              x: { signal: 'width', mult: 0.99 },
+              // x: { signal: 'width', mult: 0.99 },
               y: { value: -10 },
               text: { template: 'over time' },
               fill: { value: '#A9A9A9' },
@@ -235,13 +239,14 @@ const EditSizeGraph = createReactClass({
       spec: vegaSpec,
       actions: false
     };
+    var spec = "https://raw.githubusercontent.com/vega/vega/master/docs/examples/bar-chart.vg.json";
+    vegaEmbed(`#${this.props.graphid}`, embedSpec)
     // emded the visualization in the container with id vega-graph-article_id
-    vg.embed(`#${this.props.graphid}`, embedSpec); // Callback receiving View instance and parsed Vega spec
+    //vg.embed(`#${this.props.graphid}`, embedSpec); // Callback receiving View instance and parsed Vega spec
   },
 
 
   render() {
-    this.renderGraph();
     return (
       <div>
         <div id={this.props.graphid} />

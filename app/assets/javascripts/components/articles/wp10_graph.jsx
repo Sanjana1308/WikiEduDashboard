@@ -1,4 +1,4 @@
-/* global vg */
+/* global vegaEmbed */
 import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
@@ -192,7 +192,7 @@ const Wp10Graph = createReactClass({
       spec: vegaSpec,
       actions: false
     };
-    vg.embed(`#${this.props.graphid}`, embedSpec);
+    vegaEmbed(`#${this.props.graphid}`, embedSpec)
   },
 
   render() {
